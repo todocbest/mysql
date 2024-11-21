@@ -19,6 +19,12 @@ app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
+const sentenceRoutes = require('./routes/sentenceRoutes');
+app.use('/api', sentenceRoutes);
+
+const userRoutes = require('./routes/userRoutes');
+app.use('/api', userRoutes);
+
 // 서버 실행
 const PORT = process.env.PORT || 8001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
